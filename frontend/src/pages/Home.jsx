@@ -15,12 +15,14 @@ export default function Home() {
             AI-Powered Optimization
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-            Smart Travel Itineraries
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+            Discover the World with <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">WanderAI</span>
           </h1>
           
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Experience the future of travel planning. Our Meta-Heuristic ML model optimizes your routes, saving you time and hassle.
+            WanderAI dynamically generates highly optimized multi-day travel itineraries 
+            so you can explore without the stress of planning. Our Meta-Heuristic ML model optimizes your routes, saving you time and hassle.
           </p>
         </div>
 
