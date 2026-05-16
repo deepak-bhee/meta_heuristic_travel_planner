@@ -1,0 +1,30 @@
+{
+    "city": "Mumbai",
+    "days": 2,
+    "preference": "time",
+    "start_time": "09:00",
+    "end_time": "21:00",
+    "optimizer": "simulated_annealing",
+    "metaheuristic_iterations": 1500,
+    "metaheuristic_seed": 42,
+    "nearby_discovery": true,
+    "nearby_limit": 1,
+    "locations": [
+        {
+            "name": "Gateway of India",
+            "mandatory": true
+        },
+        {
+            "name": "Marine Drive",
+            "mandatory": false
+        },
+        {
+            "name": "Juhu Beach",
+            "mandatory": true
+        },
+        {
+            "name": "Siddhivinayak Temple",
+            "mandatory": false
+        }
+    ]
+}

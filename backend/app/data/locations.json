@@ -1,0 +1,522 @@
+{
+  "Mumbai": [
+    {
+      "name": "Marine Drive",
+      "lat": 18.944,
+      "lng": 72.823,
+      "rating": 4.0,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Juhu Beach",
+      "lat": 19.0883,
+      "lng": 72.8264,
+      "rating": 4.0,
+      "open_time": "10:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Gateway of India",
+      "lat": 18.922,
+      "lng": 72.8347,
+      "rating": 4.1,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Siddhivinayak Temple",
+      "lat": 19.0176,
+      "lng": 72.8302,
+      "rating": 4.2,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Elephanta Caves",
+      "lat": 18.9633,
+      "lng": 72.9315,
+      "rating": 4.2,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Bangalore": [
+    {
+      "name": "Bannerghatta National Park",
+      "lat": 12.8,
+      "lng": 77.577,
+      "rating": 4.2,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Bangalore Palace",
+      "lat": 12.9987,
+      "lng": 77.592,
+      "rating": 4.3,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Lalbagh Botanical Garden",
+      "lat": 12.9507,
+      "lng": 77.5848,
+      "rating": 4.5,
+      "open_time": "09:00",
+      "close_time": "19:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "ISKCON Temple Bangalore",
+      "lat": 13.0097,
+      "lng": 77.5511,
+      "rating": 4.6,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Cubbon Park",
+      "lat": 12.9763,
+      "lng": 77.5929,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    }
+  ],
+  "Delhi": [
+    {
+      "name": "Red Fort",
+      "lat": 28.6562,
+      "lng": 77.241,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Qutub Minar",
+      "lat": 28.5244,
+      "lng": 77.1855,
+      "rating": 4.1,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "India Gate",
+      "lat": 28.6129,
+      "lng": 77.2295,
+      "rating": 4.6,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Akshardham Temple",
+      "lat": 28.6127,
+      "lng": 77.2773,
+      "rating": 4.5,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Lotus Temple",
+      "lat": 28.5535,
+      "lng": 77.2588,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    }
+  ],
+  "Pune": [
+    {
+      "name": "Sinhagad Fort",
+      "lat": 18.3664,
+      "lng": 73.7559,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Aga Khan Palace",
+      "lat": 18.5523,
+      "lng": 73.901,
+      "rating": 4.8,
+      "open_time": "10:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Dagdusheth Temple",
+      "lat": 18.5164,
+      "lng": 73.8567,
+      "rating": 4.2,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Khadakwasla Dam",
+      "lat": 18.4419,
+      "lng": 73.7656,
+      "rating": 4.9,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Shaniwar Wada",
+      "lat": 18.5196,
+      "lng": 73.8553,
+      "rating": 4.3,
+      "open_time": "08:00",
+      "close_time": "19:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    }
+  ],
+  "Kolkata": [
+    {
+      "name": "Dakshineswar Temple",
+      "lat": 22.6551,
+      "lng": 88.3573,
+      "rating": 4.1,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Howrah Bridge",
+      "lat": 22.5851,
+      "lng": 88.3468,
+      "rating": 4.0,
+      "open_time": "08:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Eco Park",
+      "lat": 22.5806,
+      "lng": 88.4674,
+      "rating": 4.1,
+      "open_time": "08:00",
+      "close_time": "19:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Victoria Memorial",
+      "lat": 22.5448,
+      "lng": 88.3426,
+      "rating": 4.4,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Indian Museum",
+      "lat": 22.558,
+      "lng": 88.3509,
+      "rating": 4.3,
+      "open_time": "08:00",
+      "close_time": "20:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    }
+  ],
+  "Hyderabad": [
+    {
+      "name": "Charminar",
+      "lat": 17.3616,
+      "lng": 78.4747,
+      "rating": 4.8,
+      "open_time": "10:00",
+      "close_time": "20:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Ramoji Film City",
+      "lat": 17.2543,
+      "lng": 78.6808,
+      "rating": 4.6,
+      "open_time": "09:00",
+      "close_time": "20:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Salar Jung Museum",
+      "lat": 17.3713,
+      "lng": 78.4804,
+      "rating": 4.8,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Golconda Fort",
+      "lat": 17.3833,
+      "lng": 78.4011,
+      "rating": 4.1,
+      "open_time": "09:00",
+      "close_time": "20:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Hussain Sagar",
+      "lat": 17.4239,
+      "lng": 78.4738,
+      "rating": 4.7,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Mysore": [
+    {
+      "name": "Chamundi Hills",
+      "lat": 12.272,
+      "lng": 76.67,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 120.0,
+      "mandatory": false
+    },
+    {
+      "name": "Brindavan Gardens",
+      "lat": 12.421,
+      "lng": 76.572,
+      "rating": 4.8,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Mysore Palace",
+      "lat": 12.3051,
+      "lng": 76.6551,
+      "rating": 4.6,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Mysore Zoo",
+      "lat": 12.302,
+      "lng": 76.664,
+      "rating": 4.4,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "St. Philomena's Church",
+      "lat": 12.321,
+      "lng": 76.658,
+      "rating": 4.7,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    }
+  ],
+  "Jaipur": [
+    {
+      "name": "Jantar Mantar",
+      "lat": 26.9248,
+      "lng": 75.8246,
+      "rating": 4.8,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Amber Fort",
+      "lat": 26.9855,
+      "lng": 75.8513,
+      "rating": 4.1,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 120.0,
+      "mandatory": false
+    },
+    {
+      "name": "City Palace Jaipur",
+      "lat": 26.9258,
+      "lng": 75.8237,
+      "rating": 4.7,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Hawa Mahal",
+      "lat": 26.9239,
+      "lng": 75.8267,
+      "rating": 4.4,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Nahargarh Fort",
+      "lat": 26.9368,
+      "lng": 75.8153,
+      "rating": 4.2,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 120.0,
+      "mandatory": false
+    }
+  ],
+  "Goa": [
+    {
+      "name": "Anjuna Beach",
+      "lat": 15.573,
+      "lng": 73.7407,
+      "rating": 4.3,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Dudhsagar Falls",
+      "lat": 15.3144,
+      "lng": 74.3148,
+      "rating": 4.8,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Basilica of Bom Jesus",
+      "lat": 15.5009,
+      "lng": 73.9116,
+      "rating": 4.2,
+      "open_time": "08:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Baga Beach",
+      "lat": 15.5553,
+      "lng": 73.7517,
+      "rating": 4.8,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Fort Aguada",
+      "lat": 15.4921,
+      "lng": 73.7737,
+      "rating": 4.0,
+      "open_time": "10:00",
+      "close_time": "20:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Chennai": [
+    {
+      "name": "Fort St George",
+      "lat": 13.0796,
+      "lng": 80.287,
+      "rating": 4.6,
+      "open_time": "10:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Marina Beach",
+      "lat": 13.05,
+      "lng": 80.2824,
+      "rating": 4.9,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Valluvar Kottam",
+      "lat": 13.0526,
+      "lng": 80.2425,
+      "rating": 4.3,
+      "open_time": "10:00",
+      "close_time": "19:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Kapaleeshwarar Temple",
+      "lat": 13.0339,
+      "lng": 80.2697,
+      "rating": 4.8,
+      "open_time": "09:00",
+      "close_time": "20:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Guindy National Park",
+      "lat": 13.0067,
+      "lng": 80.2206,
+      "rating": 4.8,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ]
+}
