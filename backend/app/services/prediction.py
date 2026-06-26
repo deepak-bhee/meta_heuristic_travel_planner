@@ -67,13 +67,41 @@ def predict(city: str, days: int, preference: str, locations: list) -> dict:
     return result
 
 def get_cities():
-    artifact = get_artifact()
-    return artifact.get("cities", [])
-
-def get_locations(city: str):
     try:
         with open(LOCATIONS_PATH, 'r') as f:
             data = json.load(f)
-        return data.get(city, [])
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
         return []
+
+    city_names = [city for city, locations in data.items() if isinstance(locations, list) and city]
+    artifact = get_artifact()
+    artifact_cities = artifact.get("cities", []) if artifact else []
+
+    seen = set()
+    combined = []
+    for city in [*city_names, *artifact_cities]:
+        if city and city not in seen:
+            combined.append(city)
+            seen.add(city)
+
+    return sorted(combined)
+
+
+def get_locations(city: str):
+    if not city:
+        return []
+
+    try:
+        with open(LOCATIONS_PATH, 'r') as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+    if city in data:
+        return data[city]
+
+    match = next((key for key in data if key.casefold() == city.casefold()), None)
+    if match:
+        return data[match]
+
+    return []
