@@ -1,16 +1,16 @@
-import sys
-import os
-import joblib
 import json
-
-# Add parent directory to path to import sys
 import os
+import sys
+import joblib
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 from model import train_caa_tios_nd
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), '../../../model/caa_tios_nd_model.joblib')
-REPORT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../model/training_report.json"))
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "../../..", "model/caa_tios_nd_model.joblib")
+REPORT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..", "model/training_report.json"))
 LOCATIONS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../data/locations.json"))
 
 # Global variables to cache the model and vocabularies

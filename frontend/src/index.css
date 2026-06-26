@@ -8,8 +8,23 @@
   --color-text: #f8fafc;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: rgba(59, 130, 246, 0.35);
+  color: white;
 }

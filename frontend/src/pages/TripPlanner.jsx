@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Autocomplete, useJsApiLoader } from '@react-google-maps/api';
 import { api } from '../services/api';
-import { MapPin, Calendar, Settings, ChevronRight, Loader2, Search, Plus } from 'lucide-react';
+import { MapPin, Calendar, Settings, ChevronRight, Loader2, Search, Sparkles } from 'lucide-react';
 import Map from '../components/Map';
 
 const libraries = ['places'];
@@ -26,7 +26,7 @@ export default function TripPlanner() {
     city: '',
     days: 1,
     preference: 'time',
-    selectedLocations: [] // Array of rich objects { name, lat, lng, rating, visit_duration }
+    selectedLocations: []
   });
 
   useEffect(() => {
@@ -35,12 +35,12 @@ export default function TripPlanner() {
         const data = await api.getCities();
         setCities(data);
         if (data.length > 0) {
-          setForm(f => ({ ...f, city: data[0] }));
+          setForm((f) => ({ ...f, city: data[0] }));
         }
       } catch (err) {
         setError('Failed to load cities');
       } finally {
-        setLoading(l => ({ ...l, cities: false }));
+        setLoading((l) => ({ ...l, cities: false }));
       }
     };
     fetchCities();
@@ -52,7 +52,7 @@ export default function TripPlanner() {
         setLocations([]);
         return;
       }
-      setLoading(l => ({ ...l, locations: true }));
+      setLoading((l) => ({ ...l, locations: true }));
       try {
         let backendLocations = [];
         try {
@@ -60,28 +60,27 @@ export default function TripPlanner() {
         } catch (e) {
           // Ignore backend errors, we can fallback entirely to Google
         }
-        
+
         if (isLoaded) {
           const placesService = new window.google.maps.places.PlacesService(document.createElement('div'));
           placesService.textSearch(
             { query: `top tourist attractions in ${form.city}` },
             (results, status) => {
               if (status === window.google.maps.places.PlacesServiceStatus.OK && results) {
-                const googleLocs = results.slice(0, 16).map(place => ({
+                const googleLocs = results.slice(0, 16).map((place) => ({
                   name: place.name,
                   lat: place.geometry.location.lat(),
                   lng: place.geometry.location.lng(),
                   rating: place.rating || 4.0,
-                  open_time: "08:00",
-                  close_time: "20:00",
+                  open_time: '08:00',
+                  close_time: '20:00',
                   visit_duration: 60,
                   mandatory: false
                 }));
-                
-                // Merge and deduplicate by name
+
                 const allLocs = [...backendLocations];
-                googleLocs.forEach(gLoc => {
-                  if (!allLocs.some(l => l.name === gLoc.name)) {
+                googleLocs.forEach((gLoc) => {
+                  if (!allLocs.some((l) => l.name === gLoc.name)) {
                     allLocs.push(gLoc);
                   }
                 });
@@ -89,29 +88,28 @@ export default function TripPlanner() {
               } else {
                 setLocations(backendLocations);
               }
-              setLoading(l => ({ ...l, locations: false }));
+              setLoading((l) => ({ ...l, locations: false }));
             }
           );
         } else {
           setLocations(backendLocations);
-          setLoading(l => ({ ...l, locations: false }));
+          setLoading((l) => ({ ...l, locations: false }));
         }
       } catch (err) {
         setLocations([]);
-        setLoading(l => ({ ...l, locations: false }));
+        setLoading((l) => ({ ...l, locations: false }));
       }
     };
     fetchLocations();
   }, [form.city, isLoaded]);
 
   const handleLocationToggle = (locObj) => {
-    setForm(f => {
-      const isSelected = f.selectedLocations.some(l => l.name === locObj.name);
+    setForm((f) => {
+      const isSelected = f.selectedLocations.some((l) => l.name === locObj.name);
       if (isSelected) {
-        return { ...f, selectedLocations: f.selectedLocations.filter(n => n.name !== locObj.name) };
-      } else {
-        return { ...f, selectedLocations: [...f.selectedLocations, locObj] };
+        return { ...f, selectedLocations: f.selectedLocations.filter((n) => n.name !== locObj.name) };
       }
+      return { ...f, selectedLocations: [...f.selectedLocations, locObj] };
     });
   };
 
@@ -124,15 +122,15 @@ export default function TripPlanner() {
         name: place.name,
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng(),
-        rating: place.rating || 4.0, // Default rating if none
-        open_time: "08:00", // Default
-        close_time: "20:00", // Default
-        visit_duration: 60, // Default 1 hour
+        rating: place.rating || 4.0,
+        open_time: '08:00',
+        close_time: '20:00',
+        visit_duration: 60,
         mandatory: false
       };
 
-      setForm(f => {
-        const isSelected = f.selectedLocations.some(l => l.name === newLoc.name);
+      setForm((f) => {
+        const isSelected = f.selectedLocations.some((l) => l.name === newLoc.name);
         if (isSelected) return f;
         return { ...f, selectedLocations: [...f.selectedLocations, newLoc] };
       });
@@ -141,15 +139,14 @@ export default function TripPlanner() {
 
   const handleAutoPlan = async () => {
     if (locations.length === 0) return;
-    
-    // Pick top places based on rating (4-5 per day)
+
     const placesNeeded = parseInt(form.days) * 4;
     const sortedLocs = [...locations].sort((a, b) => b.rating - a.rating);
     const selected = sortedLocs.slice(0, placesNeeded);
-    
-    setForm(f => ({ ...f, selectedLocations: selected }));
-    
-    setLoading(l => ({ ...l, submit: true }));
+
+    setForm((f) => ({ ...f, selectedLocations: selected }));
+
+    setLoading((l) => ({ ...l, submit: true }));
     setError(null);
     try {
       const response = await api.predictItinerary({
@@ -161,7 +158,7 @@ export default function TripPlanner() {
       navigate('/results', { state: { result: response, form: { ...form, selectedLocations: selected } } });
     } catch (err) {
       setError(err.response?.data?.detail || 'Failed to auto-generate itinerary');
-      setLoading(l => ({ ...l, submit: false }));
+      setLoading((l) => ({ ...l, submit: false }));
     }
   };
 
@@ -172,7 +169,7 @@ export default function TripPlanner() {
       return;
     }
 
-    setLoading(l => ({ ...l, submit: true }));
+    setLoading((l) => ({ ...l, submit: true }));
     setError(null);
     try {
       const response = await api.predictItinerary({
@@ -184,199 +181,202 @@ export default function TripPlanner() {
       navigate('/results', { state: { result: response, form } });
     } catch (err) {
       setError(err.response?.data?.detail || 'Failed to generate itinerary');
-      setLoading(l => ({ ...l, submit: false }));
+      setLoading((l) => ({ ...l, submit: false }));
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 pt-20 px-6 pb-12">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-7 space-y-8">
-          <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Plan Your Trip</h1>
-            <p className="text-slate-400">Configure your preferences to get an AI-optimized itinerary.</p>
-          </div>
-
-        {error && (
-          <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Settings Card */}
-          <div className="bg-slate-800/50 rounded-2xl p-6 border border-white/5 space-y-6">
-            <div className="flex items-center gap-2 text-xl font-semibold mb-6 pb-4 border-b border-white/5">
-              <Settings className="text-blue-400" />
-              <h2>Trip Parameters</h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300 flex items-center gap-2">
-                  <MapPin className="w-4 h-4" /> City
-                </label>
-                <select 
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                  value={form.city}
-                  onChange={e => setForm({...form, city: e.target.value})}
-                  disabled={loading.cities}
-                >
-                  {loading.cities ? <option>Loading...</option> : cities.map(c => <option key={c} value={c}>{c}</option>)}
-                </select>
+    <div className="min-h-screen bg-slate-900 px-6 pb-12 pt-20 sm:px-8 lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-12">
+        <div className="space-y-8 lg:col-span-7">
+          <div className="rounded-[1.75rem] border border-white/10 bg-linear-to-r from-blue-500/15 via-slate-800/70 to-emerald-500/10 p-6 shadow-2xl">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-300">
+                  <Sparkles className="h-4 w-4" /> Smart trip builder
+                </div>
+                <h1 className="text-3xl font-semibold text-white">Plan your trip in a few elegant steps</h1>
+                <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-400">
+                  Choose a city, pick a few favorite stops, and let the planner turn it into an optimized route with a polished visual map.
+                </p>
               </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300 flex items-center gap-2">
-                  <Calendar className="w-4 h-4" /> Days
-                </label>
-                <input 
-                  type="number" 
-                  min="1" max="14"
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                  value={form.days}
-                  onChange={e => setForm({...form, days: e.target.value})}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300 flex items-center gap-2">
-                  <Settings className="w-4 h-4" /> Preference
-                </label>
-                <select 
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                  value={form.preference}
-                  onChange={e => setForm({...form, preference: e.target.value})}
-                >
-                  <option value="time">Time Optimized</option>
-                  <option value="distance">Distance Optimized</option>
-                  <option value="scenic">Scenic / Rating</option>
-                </select>
+              <div className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-right">
+                <p className="text-sm text-slate-400">Ready for</p>
+                <p className="text-xl font-semibold text-white">{form.days} day{form.days > 1 ? 's' : ''}</p>
               </div>
             </div>
           </div>
 
-          {/* Locations Card */}
-          <div className="bg-slate-800/50 rounded-2xl p-6 border border-white/5 space-y-6">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
-              <div className="flex items-center gap-2 text-xl font-semibold">
-                <MapPin className="text-emerald-400" />
-                <h2>Select Locations</h2>
-              </div>
-              <span className="text-sm bg-slate-700 px-3 py-1 rounded-full text-slate-300">
-                {form.selectedLocations.length} selected
-              </span>
+          {error && (
+            <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-red-400">
+              {error}
             </div>
+          )}
 
-            {/* Autocomplete Input */}
-            {isLoaded && (
-              <div className="mb-6 relative">
-                <label className="text-sm font-medium text-slate-300 flex items-center gap-2 mb-2">
-                  <Search className="w-4 h-4" /> Search for any place
-                </label>
-                <Autocomplete
-                  onLoad={setAutocomplete}
-                  onPlaceChanged={handlePlaceSelect}
-                >
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="space-y-6 rounded-[1.75rem] border border-white/10 bg-slate-800/50 p-6">
+              <div className="mb-6 flex items-center gap-2 border-b border-white/5 pb-4 text-xl font-semibold text-white">
+                <Settings className="text-blue-400" />
+                <h2>Trip parameters</h2>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-3">
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                    <MapPin className="h-4 w-4" /> City
+                  </label>
+                  <select
+                    className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:ring-2 focus:ring-blue-500"
+                    value={form.city}
+                    onChange={(e) => setForm({ ...form, city: e.target.value })}
+                    disabled={loading.cities}
+                  >
+                    {loading.cities ? <option>Loading...</option> : cities.map((c) => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                    <Calendar className="h-4 w-4" /> Days
+                  </label>
                   <input
-                    type="text"
-                    placeholder="Search Google Maps to add..."
-                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                    onKeyDown={(e) => { if(e.key === 'Enter') e.preventDefault(); }}
+                    type="number"
+                    min="1"
+                    max="14"
+                    className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:ring-2 focus:ring-blue-500"
+                    value={form.days}
+                    onChange={(e) => setForm({ ...form, days: e.target.value })}
                   />
-                </Autocomplete>
-              </div>
-            )}
+                </div>
 
-            {/* Custom Selected Places (from Autocomplete) */}
-            {form.selectedLocations.filter(loc => !locations.some(l => l.name === loc.name)).length > 0 && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-emerald-400 mb-3">Custom Selected Places:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {form.selectedLocations
-                    .filter(loc => !locations.some(l => l.name === loc.name))
-                    .map((loc, idx) => (
-                      <div key={`custom-${idx}`} className="bg-blue-500/10 border border-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.15)] rounded-xl p-4 flex flex-col gap-2 relative">
-                        <button 
-                          type="button"
-                          className="absolute top-2 right-2 text-slate-400 hover:text-white"
-                          onClick={() => handleLocationToggle(loc)}
-                        >
-                          ✕
-                        </button>
-                        <h3 className="font-medium text-white pr-6">{loc.name}</h3>
-                        <span className="text-xs font-semibold bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded w-max">
-                          ★ {loc.rating}
-                        </span>
-                      </div>
-                  ))}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                    <Settings className="h-4 w-4" /> Preference
+                  </label>
+                  <select
+                    className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:ring-2 focus:ring-blue-500"
+                    value={form.preference}
+                    onChange={(e) => setForm({ ...form, preference: e.target.value })}
+                  >
+                    <option value="time">Time optimized</option>
+                    <option value="distance">Distance optimized</option>
+                    <option value="scenic">Scenic / rating</option>
+                  </select>
                 </div>
               </div>
-            )}
+            </div>
 
-            {loading.locations ? (
-              <div className="flex justify-center py-12 text-slate-400">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
-              </div>
-            ) : (
-              <>
-                <h3 className="text-sm font-medium text-slate-300 mb-3">Recommended for {form.city}:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {locations.map(loc => (
-                    <div 
-                      key={loc.name}
-                      onClick={() => handleLocationToggle(loc)}
-                      className={`cursor-pointer rounded-xl p-4 border transition-all duration-200 flex flex-col gap-2
-                        ${form.selectedLocations.some(l => l.name === loc.name) 
-                          ? 'bg-blue-500/10 border-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.15)]' 
-                          : 'bg-slate-900 border-slate-700 hover:border-slate-500'}
-                      `}
-                    >
-                      <div className="flex justify-between items-start">
-                        <h3 className="font-medium text-white">{loc.name}</h3>
-                        <span className="text-xs font-semibold bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">
-                          ★ {loc.rating}
-                        </span>
-                      </div>
-                      <div className="text-sm text-slate-400 flex gap-4">
-                        <span>{loc.open_time} - {loc.close_time}</span>
-                        <span>{loc.visit_duration} mins</span>
-                      </div>
-                    </div>
-                  ))}
+            <div className="space-y-6 rounded-[1.75rem] border border-white/10 bg-slate-800/50 p-6">
+              <div className="mb-6 flex items-center justify-between border-b border-white/5 pb-4">
+                <div className="flex items-center gap-2 text-xl font-semibold text-white">
+                  <MapPin className="text-emerald-400" />
+                  <h2>Select locations</h2>
                 </div>
-              </>
-            )}
-          </div>
+                <span className="rounded-full bg-slate-700 px-3 py-1 text-sm text-slate-300">
+                  {form.selectedLocations.length} selected
+                </span>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button
-              type="button"
-              onClick={handleAutoPlan}
-              disabled={loading.submit || locations.length === 0}
-              className="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white rounded-xl font-semibold text-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading.submit ? <Loader2 className="w-5 h-5 animate-spin" /> : '✨ Auto-Plan My Trip'}
-            </button>
-            <button
-              type="submit"
-              disabled={loading.submit || form.selectedLocations.length === 0}
-              className="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-xl font-semibold text-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading.submit ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> Generating Itinerary...</>
-              ) : (
-                <>Generate Optimized Itinerary <ChevronRight className="w-5 h-5" /></>
+              {isLoaded && (
+                <div className="mb-6 relative">
+                  <label className="mb-2 flex items-center gap-2 text-sm font-medium text-slate-300">
+                    <Search className="h-4 w-4" /> Search for any place
+                  </label>
+                  <Autocomplete onLoad={setAutocomplete} onPlaceChanged={handlePlaceSelect}>
+                    <input
+                      type="text"
+                      placeholder="Search Google Maps to add a stop"
+                      className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:ring-2 focus:ring-blue-500"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') e.preventDefault();
+                      }}
+                    />
+                  </Autocomplete>
+                </div>
               )}
-            </button>
-          </div>
-        </form>
+
+              {form.selectedLocations.filter((loc) => !locations.some((l) => l.name === loc.name)).length > 0 && (
+                <div className="mb-6">
+                  <h3 className="mb-3 text-sm font-medium text-emerald-400">Custom selected places:</h3>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {form.selectedLocations
+                      .filter((loc) => !locations.some((l) => l.name === loc.name))
+                      .map((loc, idx) => (
+                        <div key={`custom-${idx}`} className="relative rounded-xl border border-blue-500/20 bg-blue-500/10 p-4 shadow-[0_0_15px_rgba(37,99,235,0.15)]">
+                          <button type="button" className="absolute right-2 top-2 text-slate-400 hover:text-white" onClick={() => handleLocationToggle(loc)}>
+                            ✕
+                          </button>
+                          <h3 className="pr-6 font-medium text-white">{loc.name}</h3>
+                          <span className="mt-2 inline-flex w-max rounded-full bg-emerald-500/20 px-2 py-1 text-xs font-semibold text-emerald-400">
+                            ★ {loc.rating}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {loading.locations ? (
+                <div className="flex justify-center py-12 text-slate-400">
+                  <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+                </div>
+              ) : (
+                <>
+                  <h3 className="mb-3 text-sm font-medium text-slate-300">Recommended for {form.city}:</h3>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {locations.map((loc) => (
+                      <div
+                        key={loc.name}
+                        onClick={() => handleLocationToggle(loc)}
+                        className={`cursor-pointer rounded-xl border p-4 transition-all duration-200 ${form.selectedLocations.some((l) => l.name === loc.name)
+                          ? 'border-blue-500 bg-blue-500/10 shadow-[0_0_15px_rgba(37,99,235,0.15)]'
+                          : 'border-slate-700 bg-slate-900 hover:border-slate-500'}`}
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <h3 className="font-medium text-white">{loc.name}</h3>
+                          <span className="rounded-full bg-emerald-500/20 px-2 py-1 text-xs font-semibold text-emerald-400">
+                            ★ {loc.rating}
+                          </span>
+                        </div>
+                        <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-400">
+                          <span>{loc.open_time} - {loc.close_time}</span>
+                          <span>{loc.visit_duration} mins</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <button
+                type="button"
+                onClick={handleAutoPlan}
+                disabled={loading.submit || locations.length === 0}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-purple-600 to-purple-500 px-4 py-4 text-lg font-semibold text-white shadow-lg transition hover:from-purple-500 hover:to-purple-400 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {loading.submit ? <Loader2 className="h-5 w-5 animate-spin" /> : '✨ Auto-plan my trip'}
+              </button>
+              <button
+                type="submit"
+                disabled={loading.submit || form.selectedLocations.length === 0}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-600 to-blue-500 px-4 py-4 text-lg font-semibold text-white shadow-lg transition hover:from-blue-500 hover:to-blue-400 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {loading.submit ? (
+                  <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Generating itinerary...</>
+                ) : (
+                  <>Generate optimized itinerary <ChevronRight className="h-5 w-5" /></>
+                )}
+              </button>
+            </div>
+          </form>
         </div>
 
-        <div className="hidden lg:block lg:col-span-5 relative">
-          <div className="sticky top-24 h-[calc(100vh-8rem)] rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
-            <Map 
-              selectedLocations={form.selectedLocations} 
+        <div className="hidden lg:col-span-5 lg:block">
+          <div className="sticky top-24 h-[calc(100vh-8rem)] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
+            <Map
+              selectedLocations={form.selectedLocations}
               cityCenter={locations.length > 0 ? { lat: locations[0].lat, lng: locations[0].lng } : null}
             />
           </div>

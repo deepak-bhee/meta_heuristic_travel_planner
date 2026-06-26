@@ -5,6 +5,10 @@ from app.services.prediction import predict, get_cities, get_locations
 
 router = APIRouter()
 
+@router.get("/")
+def root_check():
+    return {"status": "ok", "message": "WanderAI Backend is running", "version": "1.0.0"}
+
 @router.get("/health")
 def health_check():
     return {"status": "ok", "message": "CAA-TIOS-ND Backend is running"}
