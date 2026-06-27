@@ -58,31 +58,59 @@ export default function Results() {
   const totalStops = result.itinerary.reduce((count, day) => count + day.schedule.length, 0);
   const totalDays = result.itinerary.length;
 
-  const shareTrip = async () => {
+  const shareTrip = () => {
     if (!state || !state.result || !state.form) return;
 
-    const shareText = `WanderAI trip for ${state.form.city}: ${totalDays} day${totalDays > 1 ? 's' : ''}, ${totalStops} stops. Check it out!`;
-    const shareUrl = window.location.href;
+    // Build a full human-readable itinerary string
+    const lines = [];
+    lines.push(`🗺️ WanderAI Trip — ${state.form.city}`);
+    lines.push(`📅 ${totalDays} day${totalDays > 1 ? 's' : ''} • ${totalStops} stops • ${result.total_travel_time}`);
+    lines.push('');
 
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: `WanderAI trip to ${state.form.city}`,
-          text: shareText,
-          url: shareUrl
+    result.itinerary.forEach((day) => {
+      lines.push(`── Day ${day.day} ──`);
+      day.schedule.forEach((item, i) => {
+        lines.push(`  ${i + 1}. ${item.location}  [${item.arrival_time} – ${item.departure_time}]  ${item.status === 'skipped' ? '⚠️ skipped' : '✅'}`);
+      });
+      lines.push('');
+    });
+
+    lines.push(`Generated with WanderAI Meta-Heuristic Travel Planner`);
+    const fullText = lines.join('\n');
+
+    // Reliable copy — works on HTTP + all browsers via textarea trick
+    const copyViaTextarea = (text) => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-9999px';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    };
+
+    if (navigator.share && /Mobi|Android/i.test(navigator.userAgent)) {
+      // Native share on mobile
+      navigator.share({ title: `WanderAI trip to ${state.form.city}`, text: fullText })
+        .then(() => setShareStatus('✅ Trip shared!'))
+        .catch(() => setShareStatus('❌ Share cancelled'));
+    } else if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(fullText)
+        .then(() => setShareStatus('📋 Full itinerary copied to clipboard!'))
+        .catch(() => {
+          const ok = copyViaTextarea(fullText);
+          setShareStatus(ok ? '📋 Itinerary copied to clipboard!' : '❌ Copy failed — please copy manually');
         });
-        setShareStatus('Trip shared successfully');
-      } else if (navigator.clipboard) {
-        await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
-        setShareStatus('Trip copied to clipboard');
-      } else {
-        setShareStatus('Share not supported in this browser');
-      }
-    } catch (error) {
-      setShareStatus('Unable to share trip');
+    } else {
+      const ok = copyViaTextarea(fullText);
+      setShareStatus(ok ? '📋 Itinerary copied to clipboard!' : '❌ Copy failed — please copy manually');
     }
 
-    window.setTimeout(() => setShareStatus(''), 3000);
+    setTimeout(() => setShareStatus(''), 4000);
   };
 
   const itineraryPanel = (
