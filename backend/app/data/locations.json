@@ -518,5 +518,785 @@
       "visit_duration": 60.0,
       "mandatory": false
     }
+  ],
+  "Agra": [
+    {
+      "name": "Taj Mahal",
+      "lat": 27.1751,
+      "lng": 78.0421,
+      "rating": 4.9,
+      "open_time": "06:00",
+      "close_time": "18:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Agra Fort",
+      "lat": 27.18,
+      "lng": 78.0219,
+      "rating": 4.4,
+      "open_time": "06:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Fatehpur Sikri",
+      "lat": 27.0945,
+      "lng": 77.6677,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Mehtab Bagh",
+      "lat": 27.1803,
+      "lng": 78.0335,
+      "rating": 4.2,
+      "open_time": "07:00",
+      "close_time": "19:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Itmad-ud-Daula",
+      "lat": 27.1942,
+      "lng": 78.0432,
+      "rating": 4.3,
+      "open_time": "06:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Varanasi": [
+    {
+      "name": "Dashashwamedh Ghat",
+      "lat": 25.3109,
+      "lng": 83.0107,
+      "rating": 4.7,
+      "open_time": "05:00",
+      "close_time": "22:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Kashi Vishwanath Temple",
+      "lat": 25.3109,
+      "lng": 83.0107,
+      "rating": 4.8,
+      "open_time": "04:00",
+      "close_time": "23:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Sarnath",
+      "lat": 25.3719,
+      "lng": 83.0243,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Manikarnika Ghat",
+      "lat": 25.3132,
+      "lng": 83.0124,
+      "rating": 4.2,
+      "open_time": "00:00",
+      "close_time": "23:59",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Ramnagar Fort",
+      "lat": 25.2744,
+      "lng": 83.0297,
+      "rating": 4.1,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Udaipur": [
+    {
+      "name": "City Palace Udaipur",
+      "lat": 24.5763,
+      "lng": 73.6832,
+      "rating": 4.6,
+      "open_time": "09:30",
+      "close_time": "17:30",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Lake Pichola",
+      "lat": 24.5731,
+      "lng": 73.6759,
+      "rating": 4.7,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Jag Mandir",
+      "lat": 24.5664,
+      "lng": 73.6744,
+      "rating": 4.4,
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Sajjangarh Palace",
+      "lat": 24.5882,
+      "lng": 73.6458,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Saheliyon-ki-Bari",
+      "lat": 24.5924,
+      "lng": 73.6862,
+      "rating": 4.2,
+      "open_time": "09:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    }
+  ],
+  "Amritsar": [
+    {
+      "name": "Golden Temple",
+      "lat": 31.62,
+      "lng": 74.8765,
+      "rating": 4.9,
+      "open_time": "04:00",
+      "close_time": "23:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Jallianwala Bagh",
+      "lat": 31.6215,
+      "lng": 74.8783,
+      "rating": 4.5,
+      "open_time": "06:30",
+      "close_time": "19:30",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Wagah Border",
+      "lat": 31.6049,
+      "lng": 74.5743,
+      "rating": 4.6,
+      "open_time": "15:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Durgiana Temple",
+      "lat": 31.634,
+      "lng": 74.8722,
+      "rating": 4.4,
+      "open_time": "06:00",
+      "close_time": "21:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Partition Museum",
+      "lat": 31.6193,
+      "lng": 74.877,
+      "rating": 4.5,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Shimla": [
+    {
+      "name": "The Ridge",
+      "lat": 31.1048,
+      "lng": 77.1734,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "20:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Mall Road Shimla",
+      "lat": 31.1036,
+      "lng": 77.1729,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "21:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Jakhu Temple",
+      "lat": 31.1012,
+      "lng": 77.1781,
+      "rating": 4.5,
+      "open_time": "07:00",
+      "close_time": "19:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Kufri",
+      "lat": 31.0984,
+      "lng": 77.2672,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Christ Church Shimla",
+      "lat": 31.1044,
+      "lng": 77.1729,
+      "rating": 4.4,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    }
+  ],
+  "Manali": [
+    {
+      "name": "Rohtang Pass",
+      "lat": 32.372,
+      "lng": 77.2505,
+      "rating": 4.6,
+      "open_time": "07:00",
+      "close_time": "16:00",
+      "visit_duration": 180.0,
+      "mandatory": true
+    },
+    {
+      "name": "Solang Valley",
+      "lat": 32.3222,
+      "lng": 77.159,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Hadimba Devi Temple",
+      "lat": 32.2412,
+      "lng": 77.1822,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Old Manali",
+      "lat": 32.259,
+      "lng": 77.1861,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "20:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Beas River",
+      "lat": 32.2396,
+      "lng": 77.189,
+      "rating": 4.4,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Kochi": [
+    {
+      "name": "Fort Kochi",
+      "lat": 9.9653,
+      "lng": 76.2425,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "20:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Chinese Fishing Nets",
+      "lat": 9.9671,
+      "lng": 76.2408,
+      "rating": 4.4,
+      "open_time": "07:00",
+      "close_time": "18:00",
+      "visit_duration": 45.0,
+      "mandatory": true
+    },
+    {
+      "name": "Mattancherry Palace",
+      "lat": 9.9576,
+      "lng": 76.2594,
+      "rating": 4.3,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Jew Town Kochi",
+      "lat": 9.957,
+      "lng": 76.2598,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Marine Drive Kochi",
+      "lat": 9.9847,
+      "lng": 76.2792,
+      "rating": 4.4,
+      "open_time": "06:00",
+      "close_time": "22:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Thiruvananthapuram": [
+    {
+      "name": "Padmanabhaswamy Temple",
+      "lat": 8.4824,
+      "lng": 76.9478,
+      "rating": 4.7,
+      "open_time": "06:30",
+      "close_time": "19:30",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Napier Museum",
+      "lat": 8.5119,
+      "lng": 76.9564,
+      "rating": 4.3,
+      "open_time": "10:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Kovalam Beach",
+      "lat": 8.3988,
+      "lng": 76.9784,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "20:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Veli Tourist Village",
+      "lat": 8.4701,
+      "lng": 76.9291,
+      "rating": 4.2,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Kuthiramalika Palace",
+      "lat": 8.4821,
+      "lng": 76.9461,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "13:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Ahmedabad": [
+    {
+      "name": "Sabarmati Ashram",
+      "lat": 23.0629,
+      "lng": 72.5803,
+      "rating": 4.6,
+      "open_time": "08:30",
+      "close_time": "18:30",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Adalaj Stepwell",
+      "lat": 23.1677,
+      "lng": 72.5797,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Kankaria Lake",
+      "lat": 22.9972,
+      "lng": 72.6022,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "21:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Sidi Saiyyed Mosque",
+      "lat": 23.0252,
+      "lng": 72.5849,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "19:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    },
+    {
+      "name": "Science City Ahmedabad",
+      "lat": 23.0377,
+      "lng": 72.5697,
+      "rating": 4.4,
+      "open_time": "10:00",
+      "close_time": "19:00",
+      "visit_duration": 120.0,
+      "mandatory": false
+    }
+  ],
+  "Rishikesh": [
+    {
+      "name": "Laxman Jhula",
+      "lat": 30.1291,
+      "lng": 78.3215,
+      "rating": 4.5,
+      "open_time": "06:00",
+      "close_time": "22:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Ram Jhula",
+      "lat": 30.1238,
+      "lng": 78.3149,
+      "rating": 4.4,
+      "open_time": "06:00",
+      "close_time": "22:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Triveni Ghat",
+      "lat": 30.1149,
+      "lng": 78.3141,
+      "rating": 4.5,
+      "open_time": "05:00",
+      "close_time": "21:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Neelkanth Mahadev Temple",
+      "lat": 30.1888,
+      "lng": 78.3645,
+      "rating": 4.6,
+      "open_time": "07:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Rajaji National Park",
+      "lat": 29.9457,
+      "lng": 78.1607,
+      "rating": 4.4,
+      "open_time": "06:00",
+      "close_time": "18:00",
+      "visit_duration": 180.0,
+      "mandatory": false
+    }
+  ],
+  "Darjeeling": [
+    {
+      "name": "Tiger Hill",
+      "lat": 26.9824,
+      "lng": 88.259,
+      "rating": 4.6,
+      "open_time": "04:00",
+      "close_time": "08:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Toy Train Darjeeling",
+      "lat": 27.041,
+      "lng": 88.2663,
+      "rating": 4.7,
+      "open_time": "08:00",
+      "close_time": "17:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Batasia Loop",
+      "lat": 27.0165,
+      "lng": 88.2539,
+      "rating": 4.5,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Happy Valley Tea Estate",
+      "lat": 27.0499,
+      "lng": 88.2635,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Peace Pagoda Darjeeling",
+      "lat": 27.0444,
+      "lng": 88.2642,
+      "rating": 4.4,
+      "open_time": "05:00",
+      "close_time": "19:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Jodhpur": [
+    {
+      "name": "Mehrangarh Fort",
+      "lat": 26.2979,
+      "lng": 73.0185,
+      "rating": 4.7,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Jaswant Thada",
+      "lat": 26.3017,
+      "lng": 73.0153,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Umaid Bhawan Palace",
+      "lat": 26.291,
+      "lng": 73.0381,
+      "rating": 4.5,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 90.0,
+      "mandatory": false
+    },
+    {
+      "name": "Clock Tower Jodhpur",
+      "lat": 26.2867,
+      "lng": 73.0244,
+      "rating": 4.3,
+      "open_time": "08:00",
+      "close_time": "21:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Mandore Gardens",
+      "lat": 26.3451,
+      "lng": 73.0152,
+      "rating": 4.2,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Pushkar": [
+    {
+      "name": "Brahma Temple Pushkar",
+      "lat": 26.4889,
+      "lng": 74.5511,
+      "rating": 4.5,
+      "open_time": "06:30",
+      "close_time": "20:30",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Pushkar Lake",
+      "lat": 26.487,
+      "lng": 74.5522,
+      "rating": 4.4,
+      "open_time": "05:00",
+      "close_time": "21:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Savitri Temple",
+      "lat": 26.4901,
+      "lng": 74.5495,
+      "rating": 4.3,
+      "open_time": "07:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Pushkar Bazaar",
+      "lat": 26.4881,
+      "lng": 74.5542,
+      "rating": 4.2,
+      "open_time": "09:00",
+      "close_time": "21:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Rose Garden Pushkar",
+      "lat": 26.4843,
+      "lng": 74.5509,
+      "rating": 4.0,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    }
+  ],
+  "Ooty": [
+    {
+      "name": "Ooty Lake",
+      "lat": 11.4128,
+      "lng": 76.695,
+      "rating": 4.3,
+      "open_time": "09:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Botanical Garden Ooty",
+      "lat": 11.4236,
+      "lng": 76.7017,
+      "rating": 4.4,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Doddabetta Peak",
+      "lat": 11.4067,
+      "lng": 76.7401,
+      "rating": 4.4,
+      "open_time": "07:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Nilgiri Mountain Railway",
+      "lat": 11.4109,
+      "lng": 76.6945,
+      "rating": 4.6,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 120.0,
+      "mandatory": true
+    },
+    {
+      "name": "Rose Garden Ooty",
+      "lat": 11.4179,
+      "lng": 76.702,
+      "rating": 4.3,
+      "open_time": "08:00",
+      "close_time": "18:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    }
+  ],
+  "Madurai": [
+    {
+      "name": "Meenakshi Amman Temple",
+      "lat": 9.9195,
+      "lng": 78.1193,
+      "rating": 4.8,
+      "open_time": "05:00",
+      "close_time": "21:00",
+      "visit_duration": 90.0,
+      "mandatory": true
+    },
+    {
+      "name": "Thirumalai Nayakar Palace",
+      "lat": 9.9201,
+      "lng": 78.1244,
+      "rating": 4.4,
+      "open_time": "09:00",
+      "close_time": "17:00",
+      "visit_duration": 60.0,
+      "mandatory": true
+    },
+    {
+      "name": "Gandhi Museum Madurai",
+      "lat": 9.9288,
+      "lng": 78.1201,
+      "rating": 4.3,
+      "open_time": "10:00",
+      "close_time": "17:30",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Alagar Kovil",
+      "lat": 10.0318,
+      "lng": 78.1498,
+      "rating": 4.4,
+      "open_time": "06:00",
+      "close_time": "19:00",
+      "visit_duration": 60.0,
+      "mandatory": false
+    },
+    {
+      "name": "Vandiyur Mariamman Teppakulam",
+      "lat": 9.9105,
+      "lng": 78.1361,
+      "rating": 4.2,
+      "open_time": "06:00",
+      "close_time": "20:00",
+      "visit_duration": 45.0,
+      "mandatory": false
+    }
   ]
 }
